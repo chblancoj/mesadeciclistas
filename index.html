@@ -185,8 +185,6 @@ section{padding:5rem 2rem;}
 #galeria{background:var(--ink);}
 .gg{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:2rem;}
 .gi{position:relative;overflow:hidden;cursor:pointer;}
-.gi:first-child{grid-column:span 2;grid-row:span 2;}
-.gi:nth-child(2){grid-column:span 2;}
 .gii{width:100%;padding-top:100%;position:relative;}
 .gi:nth-child(2) .gii{padding-top:50%;}
 .giic{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;border:1px solid var(--dust);}
@@ -286,9 +284,7 @@ footer strong{color:var(--mist);}
   .hero-cta{justify-content:center;}
   .qg,.cl,.igl,.cog{grid-template-columns:1fr;}
   .gg{grid-template-columns:repeat(2,1fr);}
-  .gi:first-child{grid-column:span 2;}
-  .gi:nth-child(2){grid-column:span 2;}
-  .gur{grid-column:span 2;}
+  
 }
 @media(max-width:640px){
   .nav-links{display:none;}
@@ -557,14 +553,7 @@ footer strong{color:var(--mist);}
     <div class="sk">Galería</div>
     <h2 class="st">Imágenes de <span class="t">la comunidad</span></h2>
     <div class="sd"></div>
-    <div class="gg reveal" id="gallery-dynamic">
-      <div class="gi"><div class="gii"><div class="giic" style="background:linear-gradient(135deg,#0a2420,#1aaa96)"><span>🚵</span><p>Encuentros</p></div></div><div class="gto">Ver más</div></div>
-      <div class="gi"><div class="gii"><div class="giic" style="background:linear-gradient(135deg,#0a1818,#0d7a6e)"><span>🌄</span><p>Senderos</p></div></div><div class="gto">Ver más</div></div>
-      <div class="gi"><div class="gii"><div class="giic" style="background:linear-gradient(135deg,#122020,#1aaa96)"><span>🌿</span><p>San Cristóbal</p></div></div><div class="gto">Ver más</div></div>
-      <div class="gi"><div class="gii"><div class="giic" style="background:linear-gradient(135deg,#0a1818,#102828)"><span>🤝</span><p>Trabajo comunitario</p></div></div><div class="gto">Ver más</div></div>
-      <div class="gi"><div class="gii"><div class="giic" style="background:linear-gradient(135deg,#0a2420,#0d7a6e)"><span>📸</span><p>Actividades</p></div></div><div class="gto">Ver más</div></div>
-    </div>
-  </div>
+    <div class="gg reveal" id="gallery-dynamic"></div></div>
 </section>
 
 <section id="contacto">
@@ -717,7 +706,8 @@ let GALLERY=ld('mc_gallery',[
   {id:1780116314734,title:'Sancrilazo en Los Gemelos',url:'https://i.imgur.com/ByYybBF.jpg'},
   {id:1780116448658,title:'Reunión con Autoridades de Parquemet',url:'https://i.imgur.com/ynFNGSx.jpeg'},
   {id:1780116760292,title:'Jornada de paleo en La Z',url:'https://i.imgur.com/0q6gPyV.jpeg'},
-  {id:1780116871034,title:'Firma del Acuerdo con Parquemet',url:'https://i.imgur.com/6zsuBb7.jpeg'}
+  {id:1780116871034,title:'Firma del Acuerdo con Parquemet',url:'https://i.imgur.com/6zsuBb7.jpeg'},
+  {id:1780500000001,title:'Cuenta Pública Parquemet',url:'https://i.imgur.com/8bROYJg.jpeg'}
 ]);
 let NEWS=ld('mc_news',[
   {id:1780123312930,title:'Carta a la directora de The Clinic: Accidentes y convivencia vial en el San Cristóbal',text:'La seguridad no puede reducirse solo al autocuidado ni a la viralización de accidentes de ciclistas, porque también requiere mejor señalética, infraestuctura y educación vial para todos. Nuestra comunidad es un aliado clave de Parquemet para este objetivo.',body:'Aprendizajes más allá del viral\n\nUn video publicado recientemente en las redes sociales de Parquemet acumula más de 3 millones de visualizaciones y supera las 200 mil reacciones. El mensaje es claro: en los últimos dos años se han registrado cerca de 400 accidentes de ciclistas en el Cerro San Cristóbal, de los cuales un 40% requirió atención médica y un 8% tuvo consecuencias graves. Estas cifras importan, la preocupación es legítima y la invitación al autocuidado —usar casco, revisar frenos, respetar la señalética y mantener velocidades prudentes— es un mensaje que compartimos plenamente.\n\nAhora y en adelante, tenemos la oportunidad de ir más allá del viral. La experiencia comparada muestra que las campañas centradas exclusivamente en la responsabilidad individual rara vez logran reducir la accidentabilidad de manera sostenida.\n\nLas cifras también requieren contexto. Se estima que el Cerro San Cristóbal recibe cerca de 160 mil visitas mensuales en bicicleta. En ese marco, los accidentes representan una fracción muy pequeña del total de usuarios.\n\nEl uso del casco es indispensable, pero insuficiente como respuesta sistémica. Los accidentes se relacionan con infraestructura limitada, falta de señalización, cruces entre usuarios con velocidades distintas y la ausencia histórica de una cultura compartida de convivencia vial.\n\nLa evidencia internacional muestra que las comunidades de usuarios organizadas son uno de los activos más valiosos con que cuenta una institución como Parquemet: conocen el territorio, detectan riesgos y generan cultura de uso.\n\nDesde la Mesa de Ciclistas estamos convencidos en que podemos transformar juntos esta preocupación legítima en una agenda compartida: mejor señalización, clasificación de rutas, educación vial y mecanismos estables de participación. Ese es el camino que creemos necesario seguir construyendo junto a Parquemet.',img:'',date:'2026-05-26',cat:'Noticia',emoji:'📰'},
@@ -840,32 +830,24 @@ function renderGallerySection(){
   const container=document.getElementById('gallery-dynamic');
   if(!container)return;
   const photos=GALLERY.filter(g=>g.url);
+  const bgs=['linear-gradient(135deg,#0a2420,#1aaa96)','linear-gradient(135deg,#0a1818,#0d7a6e)','linear-gradient(135deg,#122020,#1aaa96)','linear-gradient(135deg,#0a1818,#102828)','linear-gradient(135deg,#0a2420,#0d7a6e)'];
   if(!photos.length){
-    container.innerHTML='<div class="gi"><div class="gii"><div class="giic" style="background:linear-gradient(135deg,#0a2420,#1aaa96)"><span>🚵</span><p>Encuentros</p></div></div><div class="gto">Ver más</div></div><div class="gi"><div class="gii"><div class="giic" style="background:linear-gradient(135deg,#0a1818,#0d7a6e)"><span>🌄</span><p>Senderos</p></div></div><div class="gto">Ver más</div></div><div class="gi"><div class="gii"><div class="giic" style="background:linear-gradient(135deg,#122020,#1aaa96)"><span>🌿</span><p>San Cristóbal</p></div></div><div class="gto">Ver más</div></div><div class="gi"><div class="gii"><div class="giic" style="background:linear-gradient(135deg,#0a1818,#102828)"><span>🤝</span><p>Trabajo comunitario</p></div></div><div class="gto">Ver más</div></div><div class="gi"><div class="gii"><div class="giic" style="background:linear-gradient(135deg,#0a2420,#0d7a6e)"><span>📸</span><p>Actividades</p></div></div><div class="gto">Ver más</div></div>';
+    container.innerHTML='<div class="gi" style="grid-column:span 4"><div class="gii" style="padding-top:25%"><div class="giic" style="background:var(--ink-light);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5rem"><span style="font-size:2rem">📸</span><p style="font-family:var(--font-d);font-size:0.75rem;font-weight:700;color:var(--stone);letter-spacing:0.1em;text-transform:uppercase">Agrega fotos desde el panel</p></div></div></div>';
     return;
   }
-  const bgs=['linear-gradient(135deg,#0a2420,#1aaa96)','linear-gradient(135deg,#0a1818,#0d7a6e)','linear-gradient(135deg,#122020,#1aaa96)','linear-gradient(135deg,#0a1818,#102828)','linear-gradient(135deg,#0a2420,#0d7a6e)'];
   container.innerHTML='';
   photos.forEach((p,i)=>{
     const div=document.createElement('div');
     div.className='gi';
+    // First photo spans 2 cols and 2 rows for featured look
     if(i===0){div.style.gridColumn='span 2';div.style.gridRow='span 2';}
-    else if(i===1){div.style.gridColumn='span 2';}
-    const pt=i===1?'50':'100';
-    div.innerHTML=`<div class="gii" style="padding-top:${pt}%"><div class="giic" id="giic-${i}"></div></div><div class="gto">${p.title}</div>`;
+    const pt=i===0?'100':'100';
+    div.innerHTML=`<div class="gii" style="padding-top:${pt}%"><div class="giic" id="giic-${i}" style="background:${bgs[i%5]}"></div></div><div class="gto">${p.title}</div>`;
     container.appendChild(div);
     const cell=div.querySelector(`#giic-${i}`);
     const img=new Image();
-    img.onload=()=>{
-      cell.style.backgroundImage=`url('${p.url}')`;
-      cell.style.backgroundSize='cover';
-      cell.style.backgroundPosition='center';
-      cell.style.background=`url('${p.url}') center/cover no-repeat, ${bgs[i%5]}`;
-    };
-    img.onerror=()=>{
-      cell.style.background=bgs[i%5];
-      cell.innerHTML=`<div style="display:flex;flex-direction:column;align-items:center;gap:0.5rem;padding:1rem;text-align:center"><span style="font-size:1.8rem">🔗</span><p style="font-family:var(--font-d);font-size:0.68rem;font-weight:700;color:var(--stone);letter-spacing:0.08em;text-transform:uppercase">Link no carga<br><span style="color:#e8a020;font-size:0.62rem">Usa imgur.com</span></p></div>`;
-    };
+    img.onload=()=>{cell.style.background=`url('${p.url}') center/cover no-repeat`;};
+    img.onerror=()=>{cell.style.background=bgs[i%5];};
     img.src=p.url;
   });
 }

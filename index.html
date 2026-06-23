@@ -590,14 +590,14 @@ footer strong{color:var(--mist);}
             <div class="fg"><label>Mensaje</label><textarea placeholder="Cuéntanos..." id="cf-mensaje"></textarea></div>
             <button class="bsend" onclick="sendCF()">Enviar mensaje →</button>
           </div>
-          <div class="fs" id="fs"><div style="font-size:2rem;margin-bottom:0.8rem">✅</div><strong>¡Mensaje enviado!</strong><p style="margin-top:0.5rem;font-size:0.85rem;color:var(--mist)">Te responderemos a la brevedad en canal.contactoparquemet@gmail.com</p></div>
+          <div class="fs" id="fs"><div style="font-size:2rem;margin-bottom:0.8rem">✅</div><strong>¡Mensaje enviado!</strong><p style="margin-top:0.5rem;font-size:0.85rem;color:var(--mist)">Te responderemos a la brevedad en ciclismoparquemet@gmail.com</p></div>
         </div>
       </div>
 
       <div class="ci reveal">
         <div class="cii"><div class="ciico">📍</div><div class="cit"><h4>Parque Metropolitano</h4><p>Cerro San Cristóbal, Región Metropolitana, Chile</p></div></div>
         <div class="cii"><div class="ciico">📸</div><div class="cit"><h4>Instagram</h4><p><a href="https://www.instagram.com/ciclismoparquemet" target="_blank">@ciclismoparquemet</a></p></div></div>
-        <div class="cii"><div class="ciico">📧</div><div class="cit"><h4>Correo electrónico</h4><p><a href="mailto:canal.contactoparquemet@gmail.com">canal.contactoparquemet@gmail.com</a></p></div></div>
+        <div class="cii"><div class="ciico">📧</div><div class="cit"><h4>Correo electrónico</h4><p><a href="mailto:ciclismoparquemet@gmail.com">ciclismoparquemet@gmail.com</a></p></div></div>
         <div class="cii"><div class="ciico">💬</div><div class="cit"><h4>WhatsApp</h4><p>Grupo abierto a toda la comunidad ciclista del parque.<br><a href="https://chat.whatsapp.com/BBtEI99q2upDDTjMtEuvTr" target="_blank">Unirse al grupo →</a></p></div></div>
       </div>
     </div>
@@ -606,7 +606,7 @@ footer strong{color:var(--mist);}
 
 <footer>
   <strong>Mesa de Trabajo de Ciclistas · Parque Metropolitano de Santiago</strong><br>
-  <a href="mailto:canal.contactoparquemet@gmail.com">canal.contactoparquemet@gmail.com</a> ·
+  <a href="mailto:ciclismoparquemet@gmail.com">ciclismoparquemet@gmail.com</a> ·
   <a href="https://www.instagram.com/ciclismoparquemet" target="_blank">@ciclismoparquemet</a> ·
   <a href="https://chat.whatsapp.com/BBtEI99q2upDDTjMtEuvTr" target="_blank">WhatsApp</a><br>
   <span style="opacity:0.45;font-size:0.72rem">Sitio administrado por la comunidad · Sin fines de lucro</span>
@@ -675,7 +675,7 @@ Cualquier imagen que esté publicada en internet funciona. Haz clic derecho sobr
       </div>
       <div class="asec" id="tab-ajustes">
         <div class="aform">
-          <div><label>Correo de contacto</label><input type="email" id="aj-email" placeholder="canal.contactoparquemet@gmail.com"></div>
+          <div><label>Correo de contacto</label><input type="email" id="aj-email" placeholder="ciclismoparquemet@gmail.com"></div>
           <div class="arow">
             <div><label>Años activos</label><input type="text" id="aj-years" placeholder="1+"></div>
             <div><label>Apariciones en medios</label><input type="text" id="aj-media" placeholder="4"></div>
@@ -732,7 +732,7 @@ let DOCS=ld('mc_docs',[
   {id:1780120832150,name:'Minuta Técnica sobre Regulación de las Motocicletas Eléctricas 2026',url:'https://drive.google.com/file/d/1QNTm0y6_A6RGxOmmdI4nO7984i4j_XCs/view?usp=drive_link',date:'2026-04-20',type:'Informe'},
   {id:1780120933045,name:'Minuta Prioridades de la Mesa de Ciclistas Abril 2026',url:'https://drive.google.com/file/d/1fuzHr00eXxwV_xUpOjyg4pw9Em1brvfM/view?usp=drive_link',date:'2026-04-20',type:'Informe'}
 ]);
-let SETTINGS=ld('mc_settings',{email:'canal.contactoparquemet@gmail.com',years:'+1',media:'+4',members:'+150',trails:'+35',activities:'+10'});
+let SETTINGS=ld('mc_settings',{email:'ciclismoparquemet@gmail.com',years:'+1',media:'+4',members:'+150',trails:'+35',activities:'+10'});
 
 const NEWS_PER_PAGE = 6;
 let newsPage = 0;
@@ -921,7 +921,7 @@ function sendCF(){
   if(!nombre||!email){alert('Por favor completa nombre y email');return;}
   const body=encodeURIComponent('Nombre: '+nombre+'\nEmail: '+email+'\nAsunto: '+asunto+'\n\n'+mensaje);
   const subject=encodeURIComponent('Contacto Mesa de Ciclistas: '+asunto);
-  window.open('mailto:canal.contactoparquemet@gmail.com?subject='+subject+'&body='+body,'_blank');
+  window.open('mailto:ciclismoparquemet@gmail.com?subject='+subject+'&body='+body,'_blank');
   document.getElementById('cfw').style.display='none';
   document.getElementById('fs').classList.add('show');
 }
